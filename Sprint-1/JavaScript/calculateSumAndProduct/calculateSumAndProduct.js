@@ -17,15 +17,15 @@
  * @returns {Object} Object containing running total and product
  */
 export function calculateSumAndProduct(numbers) {
-  let sum = 0;
+  let sum = 0;  
+  let product = 1;
+
   for (const num of numbers) {
     sum += num;
+    product *= num;
+
   }
 
-  let product = 1;
-  for (const num of numbers) {
-    product *= num;
-  }
 
   return {
     sum: sum,
