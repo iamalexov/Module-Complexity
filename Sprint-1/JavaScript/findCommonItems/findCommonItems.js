@@ -9,6 +9,10 @@
  * @param {Array} secondArray - Second array to compare
  * @returns {Array} Array containing unique common items
  */
-export const findCommonItems = (firstArray, secondArray) => [
+export const findCommonItems = (firstArray, secondArray) => { 
+  const secondSet = new Set(secondArray);
+
+  return[
   ...new Set(firstArray.filter((item) => secondArray.includes(item))),
 ];
+};
