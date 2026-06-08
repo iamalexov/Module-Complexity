@@ -13,9 +13,13 @@ def find_common_items(
     Space Complexity:
     Optimal time complexity:
     """
+    second_set = set(second_sequence)
+    seen = set()
     common_items: List[ItemType] = []
-    for i in first_sequence:
-        for j in second_sequence:
-            if i == j and i not in common_items:
-                common_items.append(i)
+
+    for item in first_sequence:
+        if item in second_set and item not in seen:
+            seen.add(item)
+            common_items.append(item)
+
     return common_items
