@@ -9,26 +9,14 @@
  * @returns {Array} New sequence with duplicates removed
  */
 export function removeDuplicates(inputSequence) {
+  
+  const seen = new Set();
   const uniqueItems = [];
 
-  for (
-    let currentIndex = 0;
-    currentIndex < inputSequence.length;
-    currentIndex++
-  ) {
-    let isDuplicate = false;
-    for (
-      let compareIndex = 0;
-      compareIndex < uniqueItems.length;
-      compareIndex++
-    ) {
-      if (inputSequence[currentIndex] === uniqueItems[compareIndex]) {
-        isDuplicate = true;
-        break;
-      }
-    }
-    if (!isDuplicate) {
-      uniqueItems.push(inputSequence[currentIndex]);
+   for (const item of inputSequence) {
+    if (!seen.has(item)) {
+      seen.add(item);
+      uniqueItems.push(item);
     }
   }
 
